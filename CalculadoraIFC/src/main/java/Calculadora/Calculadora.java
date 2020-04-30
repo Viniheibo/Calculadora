@@ -17,10 +17,10 @@ public class Calculadora extends javax.swing.JFrame {
     public Calculadora() {
         initComponents();
     }
-    
+
     Double valor1, valor2;
     String sinal;
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -428,29 +428,31 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualActionPerformed
         valor2 = Double.parseDouble(txtResultado.getText());
-        
-        if (null != sinal) switch (sinal) {
-            case "adicao":
-                txtResultado.setText(String.valueOf(valor1 + valor2));
-                break;
-            case "subtracao":
-                txtResultado.setText(String.valueOf(valor1 - valor2));
-                break;
-            case "multiplicacao":
-                txtResultado.setText(String.valueOf(valor1 * valor2));
-                break;
-            case "divisao":
-                if (valor2 == 0) {
-                    txtResultado.setText("Não é possível dívidir por zero");
-                } else{
-                    txtResultado.setText(String.valueOf(valor1 / valor2));
-                }   break;
-            case "potenciacao":
-                txtResultado.setText(String.valueOf(Math.pow(valor1, valor2)));
-                break;
-            default:
-                break;
-        }
+
+        if (null != sinal)
+            switch (sinal) {
+                case "adicao":
+                    txtResultado.setText(String.valueOf(valor1 + valor2));
+                    break;
+                case "subtracao":
+                    txtResultado.setText(String.valueOf(valor1 - valor2));
+                    break;
+                case "multiplicacao":
+                    txtResultado.setText(String.valueOf(valor1 * valor2));
+                    break;
+                case "divisao":
+                    if (valor2 == 0) {
+                        txtResultado.setText("Não é possível dívidir por zero");
+                    } else {
+                        txtResultado.setText(String.valueOf(valor1 / valor2));
+                    }
+                    break;
+                case "potenciacao":
+                    txtResultado.setText(String.valueOf(Math.pow(valor1, valor2)));
+                    break;
+                default:
+                    break;
+            }
     }//GEN-LAST:event_igualActionPerformed
 
     /**
@@ -481,10 +483,8 @@ public class Calculadora extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Calculadora().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Calculadora().setVisible(true);
         });
     }
 
